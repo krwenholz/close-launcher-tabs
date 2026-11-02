@@ -1,0 +1,8 @@
+{
+  "manifest_version": 3,
+  "name": "Close Launcher Tabs",
+  "version": "1.0.0",
+  "description": "Closes the leftover tab that Slack, Linear, etc. open to launch their desktop app.",
+  "permissions": ["tabs"],
+  "background": { "service_worker": "background.js" }
+}
