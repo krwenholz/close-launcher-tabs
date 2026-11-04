@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test
+
+  # After a green push to main: when the manifest version is new, publish a GitHub Release with
+  # a zip of just the files Chrome loads.
+  release:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create a GitHub Release for a new version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version=$(node -p 'require("./manifest.json").version')
+          if gh release view "v$version" >/dev/null 2>&1; then
+            echo "v$version already released"
+          else
+            zip -q "close-launcher-tabs-$version.zip" manifest.json *.js *.html *.css LICENSE README.md
+            gh release create "v$version" "close-launcher-tabs-$version.zip" \
+              --title "Close Launcher Tabs $version" --generate-notes --target "$GITHUB_SHA"
+          fi

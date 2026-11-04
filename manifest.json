@@ -1,8 +1,19 @@
 {
   "manifest_version": 3,
   "name": "Close Launcher Tabs",
-  "version": "1.0.0",
-  "description": "Closes the leftover tab that Slack, Linear, etc. open to launch their desktop app.",
-  "permissions": ["tabs"],
-  "background": { "service_worker": "background.js" }
+  "version": "1.1.0",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt58qBucdtBQhp+TU4VKGNjFOLxriKlvGAPOXFXSPp7DdEIpjLIKifu0HCmPOJ5bqeP+e0RL4WaqS6Vb4xd4eBCr9AHTBDUwQ/MU8ricfoWjzSqMA3hBs4neSL7ycC/HPVXbfiO/mULy6A8/DmXV0TyuawEP5wATLwXSU5fuJC9nB6GRUJee1nNDngjeOwvXoWTbWdGJLGkOcAOLCZgwenK2Km3bB1cdANq8WqcO1NJ4wzgQ8QjLsqI2iyHhv9juitiuQPPq5Km60MucniNarOnx7Rx/697J9daOZ7F/ZfVJl4VAX5HYcg5q9rf+AUyHV7l9WTB6zrlnVyw/3hOBqXQIDAQAB",
+  "description": "Closes the leftover tab that Slack, Linear, Notion, etc. open to launch their desktop app.",
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Close Launcher Tabs",
+    "default_popup": "popup.html"
+  }
 }

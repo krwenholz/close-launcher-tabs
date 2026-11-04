@@ -1,0 +1,166 @@
+:root {
+  color-scheme: light dark;
+  --fg: light-dark(#1f2328, #e6edf3);
+  --muted: light-dark(#656d76, #8d96a0);
+  --bg: light-dark(#fff, #1c2128);
+  --line: light-dark(#d0d7de, #373e47);
+  --accent: light-dark(#0969da, #4493f8);
+  --ok: light-dark(#1a7f37, #3fb950);
+  --warn: light-dark(#9a6700, #d29922);
+}
+
+body {
+  box-sizing: border-box;
+  width: 380px;
+  margin: 0;
+  padding: 12px 14px;
+  font: 13px/1.4 system-ui, sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+h1 {
+  font-size: 15px;
+  margin: 0 0 8px;
+}
+
+h2 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 0 0 6px;
+}
+
+section {
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+
+p {
+  margin: 4px 0;
+}
+
+.url {
+  font-family: ui-monospace, monospace;
+  font-size: 11px;
+  word-break: break-all;
+  color: var(--muted);
+}
+
+.status.closes {
+  color: var(--ok);
+}
+
+.hint {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.warning {
+  font-size: 12px;
+  color: var(--warn);
+}
+
+label {
+  display: block;
+  margin-top: 6px;
+}
+
+label.inline {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+input[type="text"],
+input[type="number"] {
+  font: 12px ui-monospace, monospace;
+  padding: 4px 6px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+}
+
+input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 4px;
+}
+
+input[type="number"] {
+  width: 80px;
+}
+
+.buttons {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+button {
+  font: inherit;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+button.secondary,
+.list button {
+  background: transparent;
+  color: var(--accent);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list li {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 3px 0;
+}
+
+.list .url {
+  flex: 1;
+  margin: 0;
+}
+
+.list button {
+  padding: 1px 8px;
+  font-size: 11px;
+}
+
+.tag {
+  font-size: 11px;
+  color: var(--ok);
+}
+
+.empty {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+#apps label {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin: 2px 0;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+}

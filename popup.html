@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Close Launcher Tabs</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <h1>Close Launcher Tabs</h1>
+
+    <section id="this-tab">
+      <h2>This tab</h2>
+      <p id="current-url" class="url"></p>
+      <p id="current-status" class="status"></p>
+      <form id="add-form">
+        <label for="pattern">Close tabs whose URL starts with</label>
+        <input id="pattern" type="text" spellcheck="false" autocomplete="off" />
+        <p class="hint">
+          No <code>https://</code>; <code>*</code> matches anything. Ids are trimmed off so it
+          catches every tab like this one.
+        </p>
+        <p id="warning" class="warning" hidden></p>
+        <div class="buttons">
+          <button id="add-close" type="submit">Add and close this tab</button>
+          <button id="add-only" type="button" class="secondary">Add</button>
+        </div>
+      </form>
+    </section>
+
+    <section>
+      <h2>Recent tabs</h2>
+      <p class="hint">A launcher tab already gone? Pick it here.</p>
+      <ul id="recent" class="list"></ul>
+    </section>
+
+    <section>
+      <h2>Your patterns</h2>
+      <ul id="patterns" class="list"></ul>
+    </section>
+
+    <section>
+      <h2>Built-in apps</h2>
+      <div id="apps"></div>
+    </section>
+
+    <section>
+      <h2>Timing</h2>
+      <label class="inline"
+        >Close after <input id="delay" type="number" min="0" max="30000" step="100" /> ms</label
+      >
+      <p class="hint">Desktop app not opening? Raise this.</p>
+    </section>
+
+    <footer>
+      <span id="version"></span>
+      <button id="reload" type="button" class="secondary">Reload extension</button>
+    </footer>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
