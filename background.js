@@ -6,6 +6,7 @@ const LAUNCHER_PATTERNS = [
   /slack\.com\/ssb\//,
   /app\.slack\.com\/.*\bopen\b/,
   /linear\.app\/.*\/desktop/,
+  /teams\.microsoft\.com\/(l\/meetup-join|dl\/launcher)\//,
 ];
 
 // Delay before closing, so the desktop handoff has time to fire.
