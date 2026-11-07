@@ -6,6 +6,7 @@ const LAUNCHER_PATTERNS = [
   /slack\.com\/ssb\//,
   /app\.slack\.com\/.*\bopen\b/,
   /linear\.app\/.*\/desktop/,
+  /zoom\.us\/(j|s|my)\//,
 ];
 
 // Delay before closing, so the desktop handoff has time to fire.
