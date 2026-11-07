@@ -5,6 +5,7 @@
 const LAUNCHER_PATTERNS = [
   /slack\.com\/ssb\//,
   /app\.slack\.com\/.*\bopen\b/,
+  /\.slack\.com\/archives\//,
   /linear\.app\/.*\/desktop/,
 ];
 
